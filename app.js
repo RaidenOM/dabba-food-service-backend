@@ -195,6 +195,4 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3000, () => {
-  console.log("Server running on PORT: 3000");
-});
+module.exports = app;
