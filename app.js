@@ -23,6 +23,10 @@ const io = new Server(server);
 
 mongoose.connect("mongodb://127.0.0.1:27017/dabba-food-service");
 
+app.get("/", (req, res) => {
+  res.json({ message: "This is the backend of dabba-food-service" });
+});
+
 app.post("/register", async (req, res) => {
   const { firstName, lastName, type, password, phone } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
