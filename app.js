@@ -21,7 +21,9 @@ app.use(express.urlencoded({ extended: true }));
 const server = http.createServer(app);
 const io = new Server(server);
 
-mongoose.connect("mongodb://127.0.0.1:27017/dabba-food-service");
+mongoose.connect(
+  process.env.DB_URL || "mongodb://127.0.0.1:27017/dabba-food-service"
+);
 
 app.get("/", (req, res) => {
   res.json({ message: "This is the backend of dabba-food-service" });
